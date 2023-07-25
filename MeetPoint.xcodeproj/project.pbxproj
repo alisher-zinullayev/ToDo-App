@@ -7,23 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43B6E3E42A6AA0FF00E4C99A /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B6E3E32A6AA0FF00E4C99A /* DatabaseManager.swift */; };
+		43B6E3E62A6AA14B00E4C99A /* ToDoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B6E3E52A6AA14B00E4C99A /* ToDoModel.swift */; };
 		43C664752A651F51001844EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C664742A651F51001844EE /* AppDelegate.swift */; };
 		43C664772A651F51001844EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C664762A651F51001844EE /* SceneDelegate.swift */; };
-		43C664792A651F51001844EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C664782A651F51001844EE /* ViewController.swift */; };
+		43C664792A651F51001844EE /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C664782A651F51001844EE /* AddViewController.swift */; };
 		43C6647C2A651F51001844EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43C6647A2A651F51001844EE /* Main.storyboard */; };
 		43C6647E2A651F53001844EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43C6647D2A651F53001844EE /* Assets.xcassets */; };
 		43C664812A651F53001844EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43C6647F2A651F53001844EE /* LaunchScreen.storyboard */; };
+		43C664892A651FE7001844EE /* MeetingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C664882A651FE7001844EE /* MeetingTableViewCell.swift */; };
+		43C6648B2A65ADF4001844EE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C6648A2A65ADF4001844EE /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		43B6E3E32A6AA0FF00E4C99A /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		43B6E3E52A6AA14B00E4C99A /* ToDoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoModel.swift; sourceTree = "<group>"; };
 		43C664712A651F51001844EE /* MeetPoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetPoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43C664742A651F51001844EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43C664762A651F51001844EE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		43C664782A651F51001844EE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		43C664782A651F51001844EE /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		43C6647B2A651F51001844EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		43C6647D2A651F53001844EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43C664802A651F53001844EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43C664822A651F53001844EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43C664882A651FE7001844EE /* MeetingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingTableViewCell.swift; sourceTree = "<group>"; };
+		43C6648A2A65ADF4001844EE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +45,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		43A7D5C52A6F9F6400A3E6C9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				43B6E3E52A6AA14B00E4C99A /* ToDoModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		43A7D5C62A6FA44F00A3E6C9 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				43B6E3E32A6AA0FF00E4C99A /* DatabaseManager.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
 		43C664682A651F51001844EE = {
 			isa = PBXGroup;
 			children = (
@@ -58,13 +82,33 @@
 			children = (
 				43C664742A651F51001844EE /* AppDelegate.swift */,
 				43C664762A651F51001844EE /* SceneDelegate.swift */,
-				43C664782A651F51001844EE /* ViewController.swift */,
+				43A7D5C62A6FA44F00A3E6C9 /* DataManager */,
+				43A7D5C52A6F9F6400A3E6C9 /* Models */,
+				43C6648C2A65B35D001844EE /* Controllers */,
+				43C6648D2A65B366001844EE /* Views */,
 				43C6647A2A651F51001844EE /* Main.storyboard */,
 				43C6647D2A651F53001844EE /* Assets.xcassets */,
 				43C6647F2A651F53001844EE /* LaunchScreen.storyboard */,
 				43C664822A651F53001844EE /* Info.plist */,
 			);
 			path = MeetPoint;
+			sourceTree = "<group>";
+		};
+		43C6648C2A65B35D001844EE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				43C664782A651F51001844EE /* AddViewController.swift */,
+				43C6648A2A65ADF4001844EE /* MainViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		43C6648D2A65B366001844EE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				43C664882A651FE7001844EE /* MeetingTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +182,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43C664792A651F51001844EE /* ViewController.swift in Sources */,
+				43B6E3E62A6AA14B00E4C99A /* ToDoModel.swift in Sources */,
+				43C664792A651F51001844EE /* AddViewController.swift in Sources */,
+				43C664892A651FE7001844EE /* MeetingTableViewCell.swift in Sources */,
+				43B6E3E42A6AA0FF00E4C99A /* DatabaseManager.swift in Sources */,
+				43C6648B2A65ADF4001844EE /* MainViewController.swift in Sources */,
 				43C664752A651F51001844EE /* AppDelegate.swift in Sources */,
 				43C664772A651F51001844EE /* SceneDelegate.swift in Sources */,
 			);
