@@ -8,7 +8,7 @@
 import Foundation
 
 protocol DatabaseManagerProtocol {
-    
+
     func addToDo(_ todo: ToDoModel)
     func getToDoList() -> [ToDoModel]
 }
@@ -25,15 +25,27 @@ final class DatabaseManagerUserDefault: DatabaseManagerProtocol {
     }
     
     func getToDoList() -> [ToDoModel] {
-        if let data = UserDefaults.standard.data(forKey: todosKey) {
-            do {
-                let todos = try JSONDecoder().decode([ToDoModel].self, from: data)
-                return todos
-            } catch {
-                print("Error decoding todos: \(error)")
-            }
+//        if let data = UserDefaults.standard.data(forKey: todosKey) {
+//            do {
+//                let todos = try JSONDecoder().decode([ToDoModel].self, from: data)
+//                return todos
+//            } catch {
+//                print("Error decoding todos: \(error)")
+//            }
+//        }
+//        return []
+        
+        guard let data = UserDefaults.standard.data(forKey: todosKey) else {return []}
+        
+        do {
+            let todos = try JSONDecoder().decode([ToDoModel].self, from: data)
+            return todos
+        } catch {
+            print("")
         }
+        
         return []
+        
     }
     
     private func saveToDoList(_ todo: [ToDoModel]) {

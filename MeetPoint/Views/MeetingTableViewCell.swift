@@ -11,19 +11,19 @@ final class MeetingTableViewCell: UITableViewCell {
     
     static let identifier = String(describing: MeetingTableViewCell.self)
     
-    let nameLabel: UILabel = {
+    private let nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    let addressLabel: UILabel = {
+    private let addressLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    let descriptionLabel: UILabel = {
+    private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -31,14 +31,18 @@ final class MeetingTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.addSubview(nameLabel)
-        contentView.addSubview(addressLabel)
-        contentView.addSubview(descriptionLabel)
+        addSubviews()
         setupUI()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func addSubviews() {
+        contentView.addSubview(nameLabel)
+        contentView.addSubview(addressLabel)
+        contentView.addSubview(descriptionLabel)
     }
     
     private func setupUI() {
@@ -58,6 +62,17 @@ final class MeetingTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate(nameLabelConstraints)
         NSLayoutConstraint.activate(addressLabelConstraints)
         NSLayoutConstraint.activate(descriptionLabelConstraints)
+        
+    }
+    
+    func configure(with todo: ToDoModel) {
+        nameLabel.text = todo.name
+        addressLabel.text = todo.address
+                
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        descriptionLabel.text = dateFormatter.string(from: todo.date)
     }
     
 }

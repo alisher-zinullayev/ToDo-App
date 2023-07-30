@@ -78,6 +78,22 @@ final class AddViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupUI()
+        view.backgroundColor = .systemBackground
+    }
+    
+    private func setupUI() {
+        addSubviews()
+        setupButtons()
+        configureConstraints()
+    }
+
+    private func setupButtons() {
+        saveButton.addTarget(self, action: #selector(saveButtonPressed), for: .touchUpInside)
+        cancelButton.addTarget(self, action: #selector(cancelButtonPressed), for: .touchUpInside)
+    }
+    
+    private func addSubviews() {
         view.addSubview(nameTextField)
         view.addSubview(addressTextField)
         view.addSubview(descriptionTextField)
@@ -85,14 +101,9 @@ final class AddViewController: UIViewController {
         view.addSubview(datePicker)
         view.addSubview(cancelButton)
         view.addSubview(saveButton)
-        saveButton.addTarget(self, action: #selector(saveButtonPressed), for: .touchUpInside)
-        cancelButton.addTarget(self, action: #selector(cancelButtonPressed), for: .touchUpInside)
-        view.backgroundColor = .systemBackground
-        setupUI()
-
     }
-
-    private func setupUI() {
+    
+    private func configureConstraints() {
         let nameTextFieldConstraints = [
             nameTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
             nameTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -134,30 +145,41 @@ final class AddViewController: UIViewController {
         NSLayoutConstraint.activate(datePickerConstraints)
         NSLayoutConstraint.activate(cancelButtonConstraints)
         NSLayoutConstraint.activate(saveButtonConstraints)
+        
+//        NSLayoutConstraint.activate([nameTextFieldConstraints, addressTextFieldConstraints, descriptionTextFieldConstraints, dateLabelConstraints, datePickerConstraints, cancelButtonConstraints, saveButtonConstraints])
+        
     }
     
     @objc private func saveButtonPressed() {
         
-        let name = nameTextField.text!
+        guard let name = nameTextField.text else {
+            let name = ""
+            return
+        }
+            
+        guard let taskDescription = descriptionTextField.text else {
+            let taskDescription = ""
+            return
+        }
+        
+        guard let address = addressTextField.text else {
+            let address = ""
+            return
+        }
+        
         let date = datePicker.date
-        let taskDescription = descriptionTextField.text!
-        let address = addressTextField.text!
         
         let toDoItem = ToDoModel(name: name, date: date, taskDescription: taskDescription, address: address)
         dataBaseManager.addToDo(toDoItem)
         
-        if let navigationController = navigationController {
-            if navigationController.viewControllers.count > 1 {
-                navigationController.popViewController(animated: true)
-            } else {
-                print("no previous view controller")
-            }
-        } else {
-            print("nil")
-        }
+        previousViewController()
     }
     
     @objc private func cancelButtonPressed() {
+        previousViewController()
+    }
+    
+    private func previousViewController() {
         if let navigationController = navigationController {
             if navigationController.viewControllers.count > 1 {
                 navigationController.popViewController(animated: true)
